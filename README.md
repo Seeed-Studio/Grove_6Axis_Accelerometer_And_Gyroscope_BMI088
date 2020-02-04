@@ -1,4 +1,4 @@
-# Grove - 6-Axis Accelerometer&Gyroscope(BMI088)
+# Grove - 6-Axis Accelerometer&Gyroscope(BMI088)  [![Build Status](https://travis-ci.com/Seeed-Studio/Grove_6Axis_Accelerometer_And_Gyroscope_BMI088.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Grove_6Axis_Accelerometer_And_Gyroscope_BMI088)
 
 ## Usage
     1.Git clone this resp to your Arduino IDE's libraries directory.
