@@ -283,7 +283,7 @@ uint8_t BMI088::read8(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 1);
+    Wire.requestFrom(addr, (uint8_t)1);
     while (Wire.available()) {
         data = Wire.read();
     }
@@ -305,7 +305,7 @@ uint16_t BMI088::read16(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 2);
+    Wire.requestFrom(addr, (uint8_t)2);
     while (Wire.available()) {
         lsb = Wire.read();
         msb = Wire.read();
@@ -328,7 +328,7 @@ uint16_t BMI088::read16Be(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 2);
+    Wire.requestFrom(addr, (uint8_t)2);
     while (Wire.available()) {
         msb = Wire.read();
         lsb = Wire.read();
@@ -351,7 +351,7 @@ uint32_t BMI088::read24(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 3);
+    Wire.requestFrom(addr, (uint8_t)3);
     while (Wire.available()) {
         lsb = Wire.read();
         msb = Wire.read();
