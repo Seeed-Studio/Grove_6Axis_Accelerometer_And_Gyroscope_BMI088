@@ -29,9 +29,9 @@
 
 #include "BMI088.h"
 
-BMI088::BMI088(void) {
-    devAddrAcc = BMI088_ACC_ADDRESS;
-    devAddrGyro = BMI088_GYRO_ADDRESS;
+BMI088::BMI088( unsigned short acc_addr = BMI088_ACC_ADDRESS, unsigned short gyro_addr = BMI088_GYRO_ADDRESS ){ 
+    devAddrAcc = acc_addr; 
+    devAddrGyro = gyro_addr; 
 }
 
 void BMI088::initialize(void) {
@@ -381,5 +381,3 @@ void BMI088::read(device_type_t dev, uint8_t reg, uint8_t* buf, uint16_t len) {
         }
     }
 }
-
-BMI088 bmi088;
