@@ -1,9 +1,10 @@
-
 #include "BMI088.h"
 
 float ax = 0, ay = 0, az = 0;
 float gx = 0, gy = 0, gz = 0;
 int16_t temp = 0;
+BMI088 bmi088( BMI088_ACC_ADDRESS, BMI088_GYRO_ADDRESS );
+
 
 void setup(void) {
     Wire.begin();
@@ -11,6 +12,7 @@ void setup(void) {
 
     while (!Serial);
     Serial.println("BMI088 Raw Data");
+    
 
     while (1) {
         if (bmi088.isConnection()) {

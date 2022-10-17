@@ -34,6 +34,7 @@
 #include <Wire.h>
 
 #define BMI088_ACC_ADDRESS          0x19
+#define BMI088_ACC_ALT_ADDRESS      0x18
 
 #define BMI088_ACC_CHIP_ID          0x00 // Default value 0x1E
 #define BMI088_ACC_ERR_REG          0x02
@@ -69,7 +70,9 @@
 
 #define BMI088_ACC_SOFT_RESET       0x7E
 
-#define BMI088_GYRO_ADDRESS             0x69
+#define BMI088_GYRO_ADDRESS         0x69
+#define BMI088_GYRO_ALT_ADDRESS     0x68
+
 
 #define BMI088_GYRO_CHIP_ID             0x00 // Default value 0x0F
 
@@ -148,10 +151,10 @@ enum gyro_power_type_t { // power mode
     GYRO_DEEP_SUSPEND = 0x20, //
 };
 
-class BMI088 {
-  public:
+class BMI088{
+public:
 
-    BMI088(void);
+    BMI088( unsigned short, unsigned short );
 
     bool isConnection(void);
 
@@ -198,7 +201,5 @@ class BMI088 {
     uint8_t devAddrAcc;
     uint8_t devAddrGyro;
 };
-
-extern BMI088 bmi088;
 
 #endif

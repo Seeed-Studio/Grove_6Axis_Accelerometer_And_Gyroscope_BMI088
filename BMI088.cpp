@@ -29,9 +29,9 @@
 
 #include "BMI088.h"
 
-BMI088::BMI088(void) {
-    devAddrAcc = BMI088_ACC_ADDRESS;
-    devAddrGyro = BMI088_GYRO_ADDRESS;
+BMI088::BMI088( unsigned short acc_addr = BMI088_ACC_ADDRESS, unsigned short gyro_addr = BMI088_GYRO_ADDRESS ){ 
+    devAddrAcc = acc_addr; 
+    devAddrGyro = gyro_addr; 
 }
 
 void BMI088::initialize(void) {
@@ -283,7 +283,7 @@ uint8_t BMI088::read8(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 1);
+    Wire.requestFrom(addr, (uint8_t)1);
     while (Wire.available()) {
         data = Wire.read();
     }
@@ -305,7 +305,7 @@ uint16_t BMI088::read16(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 2);
+    Wire.requestFrom(addr, (uint8_t)2);
     while (Wire.available()) {
         lsb = Wire.read();
         msb = Wire.read();
@@ -328,7 +328,7 @@ uint16_t BMI088::read16Be(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 2);
+    Wire.requestFrom(addr, (uint8_t)2);
     while (Wire.available()) {
         msb = Wire.read();
         lsb = Wire.read();
@@ -351,7 +351,7 @@ uint32_t BMI088::read24(device_type_t dev, uint8_t reg) {
     Wire.write(reg);
     Wire.endTransmission();
 
-    Wire.requestFrom(addr, 3);
+    Wire.requestFrom(addr, (uint8_t)3);
     while (Wire.available()) {
         lsb = Wire.read();
         msb = Wire.read();
@@ -381,5 +381,3 @@ void BMI088::read(device_type_t dev, uint8_t reg, uint8_t* buf, uint16_t len) {
         }
     }
 }
-
-BMI088 bmi088;
